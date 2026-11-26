@@ -1,0 +1,184 @@
+.overlay {
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 1000;
+  background-color: #0a0a0ab3;
+  justify-content: flex-end;
+  animation: 0.2s ease-out fadeIn;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+.drawer {
+  background-color: var(--color-charcoal-card);
+  border-left: 1px solid var(--color-charcoal-border);
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  box-shadow: var(--shadow-lg);
+  flex-direction: column;
+  animation: 0.3s cubic-bezier(0.16, 1, 0.3, 1) slideIn;
+  display: flex;
+}
+.header {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--color-charcoal-border);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+.title {
+  color: var(--color-cream-white);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.closeButton {
+  color: var(--color-cream-muted);
+  border-radius: var(--radius-sm);
+  width: 32px;
+  height: 32px;
+  transition: all var(--transition-fast);
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  display: flex;
+}
+.closeButton:hover {
+  background-color: var(--color-charcoal-hover);
+  color: var(--color-cream-white);
+}
+.itemList {
+  padding: var(--space-md) var(--space-lg);
+  gap: var(--space-md);
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+  overflow-y: auto;
+}
+.emptyState {
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-cream-muted);
+  text-align: center;
+  padding: var(--space-2xl);
+  flex-direction: column;
+  flex: 1;
+  display: flex;
+}
+.emptyIcon {
+  font-size: 3rem;
+}
+.cartItem {
+  gap: var(--space-sm);
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-charcoal-surface);
+  display: flex;
+}
+.itemImage {
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  width: 64px;
+  height: 64px;
+}
+.itemDetails {
+  flex-direction: column;
+  flex: 1;
+  gap: 4px;
+  display: flex;
+}
+.itemName {
+  color: var(--color-cream-white);
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+.itemPrice {
+  color: var(--color-golden-yellow);
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+.quantityControls {
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  display: flex;
+}
+.qtyButton {
+  border-radius: var(--radius-sm);
+  background-color: var(--color-charcoal-surface);
+  border: 1px solid var(--color-charcoal-border);
+  width: 28px;
+  height: 28px;
+  color: var(--color-cream-white);
+  touch-action: manipulation;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  display: flex;
+}
+.qtyButton:hover {
+  border-color: var(--color-golden-yellow);
+  color: var(--color-golden-yellow);
+}
+.qtyButton:active {
+  transform: scale(0.92);
+}
+.qtyDisplay {
+  text-align: center;
+  min-width: 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.footer {
+  padding: var(--space-md) var(--space-lg);
+  padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  border-top: 1px solid var(--color-charcoal-border);
+  background-color: var(--color-charcoal-pure);
+  gap: var(--space-sm);
+  flex-direction: column;
+  display: flex;
+}
+.priceRow {
+  color: var(--color-cream-muted);
+  justify-content: space-between;
+  font-size: 0.875rem;
+  display: flex;
+}
+.totalRow {
+  color: var(--color-cream-white);
+  padding-top: var(--space-xs);
+  border-top: 1px dashed var(--color-charcoal-border);
+  justify-content: space-between;
+  font-size: 1.125rem;
+  font-weight: 800;
+  display: flex;
+}
+.totalValue {
+  color: var(--color-golden-yellow);
+}
+@media (width<=640px) {
+  .drawer {
+    border-left: none;
+    max-width: 100%;
+  }
+  .header {
+    padding: var(--space-md);
+  }
+  .closeButton {
+    width: 38px;
+    height: 38px;
+    font-size: 1.4rem;
+  }
+  .itemList {
+    padding: var(--space-md);
+  }
+  .footer {
+    padding: var(--space-md);
+    padding-bottom: max(var(--space-md), env(safe-area-inset-bottom));
+  }
+  .qtyButton {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+}

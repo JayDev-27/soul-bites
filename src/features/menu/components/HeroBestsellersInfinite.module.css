@@ -1,0 +1,454 @@
+.heroWindow {
+  border-bottom: 1px solid var(--color-charcoal-border);
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+  position: relative;
+  overflow: clip;
+}
+.stageWrapper {
+  perspective: 1400px;
+  perspective-origin: 50% 48%;
+  cursor: default;
+  touch-action: pan-y;
+  background:
+    radial-gradient(circle at 50% 45%, #f5b70024 0%, #1c1c1c00 65%),
+    linear-gradient(#1c1c1c73 0%, #121212d9 100%);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: clamp(550px, 65svh, 760px);
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  overflow: visible;
+}
+.ambientGlow {
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(#f5b70038 0%, #f5b7000d 55%, #0000 75%);
+  width: 1000px;
+  height: 680px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.floorShadow {
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(#000000e6 0%, #0006 55%, #0000 75%);
+  border-radius: 50%;
+  width: 1100px;
+  height: 75px;
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translate(-50%);
+}
+.carouselStage {
+  width: 100%;
+  max-width: 1500px;
+  height: 100%;
+  transform-style: preserve-3d;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: relative;
+}
+.card3D {
+  width: clamp(520px, 64vw, 920px);
+  min-height: clamp(440px, 50vh, 520px);
+  padding: var(--space-xl) clamp(var(--space-lg), 3vw, var(--space-2xl));
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+  -webkit-user-select: none;
+  user-select: none;
+  background: radial-gradient(
+    circle at 75%,
+    #f5b70029 0%,
+    #222222e0 50%,
+    #121212f5 100%
+  );
+  border: 1px solid #ffffff12;
+  border-radius: 40px;
+  justify-content: space-between;
+  align-items: center;
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.9, 0.3, 1),
+    opacity 0.4s,
+    filter 0.4s;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  overflow: visible;
+  box-shadow:
+    0 35px 85px #000c,
+    0 0 40px #f5b7001a;
+}
+.cardActive {
+  cursor: pointer;
+  border: 1px solid #f5b7004d;
+  box-shadow:
+    0 45px 110px #000000e6,
+    0 0 65px #f5b70047;
+}
+.cardSide {
+  cursor: pointer;
+  filter: brightness(0.75);
+  border-color: #ffffff0d;
+  transition: filter 0.25s;
+}
+.cardSide:hover {
+  filter: brightness(0.95);
+  border-color: #f5b70066;
+}
+.cardSideOverlay {
+  pointer-events: none;
+  z-index: 15;
+  background: linear-gradient(#1212124d 0%, #121212a6 100%);
+  border-radius: 40px;
+  transition: opacity 0.3s;
+  position: absolute;
+  inset: 0;
+}
+.cardSide:hover .cardSideOverlay {
+  opacity: 0.15;
+}
+.watermarkText {
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.14;
+  white-space: nowrap;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 0.88;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+}
+.watermarkWord {
+  text-transform: uppercase;
+  color: #0000;
+  -webkit-text-stroke: 2px var(--color-cream-white);
+  letter-spacing: 0.04em;
+  font-size: clamp(4.5rem, 8.5vw, 7.5rem);
+  font-weight: 900;
+}
+.contentArea {
+  z-index: 5;
+  gap: var(--space-sm);
+  flex-direction: column;
+  max-width: 50%;
+  display: flex;
+  position: relative;
+}
+.titleGroup {
+  flex-direction: column;
+  margin: 6px 0 4px;
+  display: flex;
+  position: relative;
+}
+.titleLine1 {
+  color: var(--color-cream-white);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+.titleScriptLine {
+  color: var(--color-golden-yellow);
+  text-shadow: 0 0 20px #f5b70066;
+  margin: -8px 0 -8px 12px;
+  font-family:
+    Caveat,
+    Dancing Script,
+    Brush Script MT,
+    cursive;
+  font-size: clamp(3rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.85;
+  display: inline-block;
+  transform: rotate(-3deg);
+}
+.titleLine2 {
+  color: var(--color-cream-white);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+.leafIcon {
+  pointer-events: none;
+  filter: drop-shadow(0 3px 6px #0009);
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: -12px;
+  right: -24px;
+}
+.cardDescription {
+  color: var(--color-cream-muted);
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  max-width: 440px;
+  margin: 4px 0 12px;
+  font-size: clamp(0.875rem, 1.3vw, 1.0625rem);
+  line-height: 1.6;
+  display: -webkit-box;
+  overflow: hidden;
+}
+.ctaWrapper {
+  background: var(--color-golden-yellow);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  min-height: 44px;
+  transition: all var(--transition-fast);
+  border: none;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  padding: 10px 22px;
+  display: inline-flex;
+  box-shadow: 0 8px 24px #f5b70059;
+}
+.ctaWrapper:hover {
+  background: var(--color-golden-hover);
+  box-shadow: var(--shadow-golden);
+  transform: scale(1.05);
+}
+.ctaText {
+  color: var(--color-charcoal-pure);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.9375rem;
+  font-weight: 900;
+}
+.focusHint {
+  color: var(--color-golden-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.8125rem;
+  font-weight: 800;
+}
+.productArea {
+  z-index: 6;
+  justify-content: center;
+  align-items: center;
+  width: clamp(280px, 30vw, 420px);
+  height: clamp(280px, 30vw, 420px);
+  margin-right: -45px;
+  display: flex;
+  position: relative;
+}
+.dishFrame {
+  background-color: var(--color-charcoal-pure);
+  border: 5px solid #282828;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 35px 80px #000000f2,
+    0 0 50px #f5b70047;
+}
+.cardActive .dishFrame {
+  transform: scale(1.06) translateZ(40px);
+}
+.productImage {
+  object-fit: cover;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+}
+.cardActive:hover .productImage {
+  transform: scale(1.08);
+}
+.speechBubblePrice {
+  color: var(--color-charcoal-pure);
+  letter-spacing: -0.01em;
+  z-index: 10;
+  background: linear-gradient(135deg, #f5b700 0%, #e65100 100%);
+  border: 2px solid #fff8e666;
+  border-radius: 22px 22px 4px;
+  align-items: center;
+  gap: 2px;
+  padding: 12px 24px;
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-weight: 900;
+  transition: transform 0.3s;
+  display: flex;
+  position: absolute;
+  bottom: -4px;
+  right: -10px;
+  transform: rotate(-3deg);
+  box-shadow: 0 14px 32px #000000b3;
+}
+.cardActive:hover .speechBubblePrice {
+  transform: rotate(0) scale(1.08);
+}
+.floatingMint1 {
+  z-index: 8;
+  filter: drop-shadow(0 4px 10px #000000b3);
+  width: 32px;
+  height: 32px;
+  animation: 4s ease-in-out infinite floatLeaf;
+  position: absolute;
+  top: -16px;
+  right: 80px;
+}
+.floatingMint2 {
+  z-index: 8;
+  filter: drop-shadow(0 4px 10px #000000b3);
+  width: 28px;
+  height: 28px;
+  animation: 4s ease-in-out 2s infinite floatLeaf;
+  position: absolute;
+  bottom: -12px;
+  left: 28px;
+}
+@media (width<=900px) {
+  .stageWrapper {
+    height: 560px;
+  }
+  .card3D {
+    width: clamp(400px, 80vw, 560px);
+    min-height: 400px;
+  }
+  .productArea {
+    width: 240px;
+    height: 240px;
+    margin-right: -20px;
+  }
+}
+@media (width<=640px) {
+  .stageWrapper {
+    perspective: 1000px;
+    touch-action: pan-y;
+    height: clamp(440px, 62vh, 480px);
+  }
+  .card3D {
+    width: clamp(280px, 86vw, 328px);
+    min-height: auto;
+    padding: var(--space-sm) var(--space-md) var(--space-md);
+    border-radius: 28px;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 4px;
+    box-shadow:
+      0 16px 44px #000000d9,
+      0 0 24px #f5b7001f;
+  }
+  .cardActive {
+    box-shadow:
+      0 24px 55px #000000f2,
+      0 0 38px #f5b70038;
+  }
+  .contentArea {
+    text-align: center;
+    align-items: center;
+    gap: 4px;
+    max-width: 100%;
+  }
+  .titleGroup {
+    align-items: center;
+    margin: 2px 0;
+  }
+  .titleLine1,
+  .titleLine2 {
+    font-size: 1.35rem;
+    line-height: 1;
+  }
+  .titleScriptLine {
+    margin: -4px 0 -4px 4px;
+    font-size: 1.95rem;
+    line-height: 0.9;
+  }
+  .leafIcon {
+    width: 20px;
+    height: 20px;
+    top: -8px;
+    right: -16px;
+  }
+  .cardDescription {
+    -webkit-line-clamp: 2;
+    max-width: 260px;
+    margin: 2px 0 6px;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
+  .ctaWrapper {
+    gap: 8px;
+    margin-top: 2px;
+    padding: 10px 20px;
+  }
+  .ctaText {
+    font-size: 0.8125rem;
+  }
+  .productArea {
+    width: 160px;
+    height: 160px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 0;
+  }
+  .dishFrame {
+    border-width: 3px;
+  }
+  .speechBubblePrice {
+    border-radius: 14px 14px 2px;
+    padding: 6px 12px;
+    font-size: 1.15rem;
+    bottom: -6px;
+    right: -6px;
+  }
+  .floatingMint1 {
+    width: 20px;
+    height: 20px;
+    top: -6px;
+    right: 12px;
+  }
+  .floatingMint2 {
+    width: 16px;
+    height: 16px;
+    bottom: -4px;
+    left: 8px;
+  }
+  .watermarkText {
+    display: none;
+  }
+  .ambientGlow {
+    width: 100%;
+    height: 360px;
+  }
+  .floorShadow {
+    width: 280px;
+    height: 36px;
+    bottom: 4px;
+  }
+}
+@media (height>=620px) and (prefers-reduced-motion: no-preference) {
+  .heroWindow {
+    height: calc(100svh - var(--nav-height) + clamp(520px, 72svh, 760px));
+  }
+  .stageWrapper {
+    top: var(--nav-height);
+    height: calc(100svh - var(--nav-height));
+    position: sticky;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card3D {
+    transition: none;
+  }
+}

@@ -1,0 +1,117 @@
+.trackerContainer {
+  background-color: var(--color-charcoal-card);
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  gap: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  flex-direction: column;
+  scroll-margin-top: 100px;
+  display: flex;
+}
+.previewItems {
+  gap: var(--space-sm);
+  flex-direction: column;
+  list-style: none;
+  display: flex;
+}
+.previewItems li {
+  justify-content: space-between;
+  gap: var(--space-md);
+  display: flex;
+}
+.previewItems li span:last-child {
+  white-space: nowrap;
+}
+.header {
+  border-bottom: 1px solid var(--color-charcoal-border);
+  padding-bottom: var(--space-md);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+.orderNumber {
+  color: var(--color-cream-white);
+  font-size: 1.125rem;
+  font-weight: 800;
+}
+.eta {
+  color: var(--color-golden-yellow);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.stepsList {
+  gap: var(--space-md);
+  flex-direction: column;
+  display: flex;
+  position: relative;
+}
+.stepItem {
+  align-items: flex-start;
+  gap: var(--space-md);
+  display: flex;
+  position: relative;
+}
+.stepIconContainer {
+  background-color: var(--color-charcoal-surface);
+  border: 2px solid var(--color-charcoal-border);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  transition: all var(--transition-fast);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.125rem;
+  display: flex;
+}
+.stepCompleted .stepIconContainer {
+  background-color: var(--color-golden-yellow);
+  border-color: var(--color-golden-yellow);
+  color: var(--color-charcoal-pure);
+  box-shadow: var(--shadow-golden);
+}
+.stepActive .stepIconContainer {
+  border-color: var(--color-golden-yellow);
+  background-color: var(--color-charcoal-hover);
+  animation: 1.5s infinite pulseIcon;
+}
+.stepContent {
+  flex-direction: column;
+  flex: 1;
+  gap: 2px;
+  display: flex;
+}
+.stepTitle {
+  color: var(--color-cream-white);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.stepDesc {
+  color: var(--color-cream-muted);
+  font-size: 0.8125rem;
+}
+.footerInfo {
+  background-color: var(--color-charcoal-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--color-cream-subtle);
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  display: flex;
+}
+@media (width<=640px) {
+  .trackerContainer {
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+  .stepIconContainer {
+    width: 34px;
+    height: 34px;
+    font-size: 0.95rem;
+  }
+  .footerInfo {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

@@ -1,0 +1,98 @@
+.wrapper {
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  flex-direction: column;
+  display: flex;
+}
+.searchBar {
+  background-color: var(--color-charcoal-card);
+  border: 1px solid var(--color-charcoal-border);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  display: flex;
+}
+.searchBar:focus-within {
+  border-color: var(--color-golden-yellow);
+  box-shadow: 0 0 12px #f5b70033;
+}
+.searchInput {
+  min-height: 28px;
+  color: var(--color-cream-white);
+  background: 0 0;
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.9375rem;
+}
+.dietaryLabel {
+  align-items: center;
+  gap: var(--space-sm);
+  color: var(--color-cream-subtle);
+  flex-wrap: wrap;
+  font-size: 0.875rem;
+  display: flex;
+}
+.dietaryLabel select {
+  border-radius: var(--radius-md);
+  background: var(--color-charcoal-surface);
+  border: 1px solid var(--color-charcoal-border);
+  max-width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.searchInput::placeholder {
+  color: var(--color-cream-dim);
+}
+.categoryList {
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  gap: 8px;
+  padding-bottom: 6px;
+  display: flex;
+  overflow-x: auto;
+}
+.categoryList::-webkit-scrollbar {
+  display: none;
+}
+.categoryChip {
+  border-radius: var(--radius-full);
+  background-color: var(--color-charcoal-surface);
+  border: 1px solid var(--color-charcoal-border);
+  color: var(--color-cream-muted);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  touch-action: pan-x;
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.categoryChip:hover {
+  background-color: var(--color-charcoal-hover);
+  color: var(--color-cream-white);
+}
+.categoryChip:active {
+  transform: scale(0.96);
+}
+.activeChip {
+  background-color: var(--color-golden-yellow);
+  color: var(--color-charcoal-pure);
+  border-color: var(--color-golden-yellow);
+  box-shadow: var(--shadow-golden);
+}
+.activeChip:hover {
+  background-color: var(--color-golden-hover);
+  color: var(--color-charcoal-pure);
+}
+@media (width<=640px) {
+  .categoryList {
+    margin: 0 calc(-1 * var(--space-md));
+    padding: 0 var(--space-md) 6px;
+  }
+  .categoryChip {
+    padding: 7px 14px;
+    font-size: 0.8125rem;
+  }
+}

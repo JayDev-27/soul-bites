@@ -1,0 +1,148 @@
+.glass,
+.pouch {
+  --side-progress: var(--scene-progress, 1);
+  z-index: 1;
+  filter: drop-shadow(0 14px 18px var(--color-overlay));
+  position: absolute;
+  top: 50%;
+}
+.glass {
+  --fill: clamp(0, calc((var(--side-progress) - 0.16) * 1.28), 1);
+  --fill-edge: calc(88.5% - 86% * var(--fill));
+  --water-highlight: color-mix(
+    in srgb,
+    var(--color-success) 25%,
+    var(--color-cream-white)
+  );
+  aspect-ratio: 410/800;
+  width: 19%;
+  right: 3%;
+  transform: translateY(-43%) rotate(8deg);
+}
+.glassBack,
+.glassFront,
+.glassInterior,
+.pouchBase,
+.pouchOpening,
+.packedFries,
+.liquid {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.glassFront {
+  color: var(--color-cream-white);
+}
+.glassInterior {
+  clip-path: url(#mojito-interior);
+}
+.liquid {
+  clip-path: inset(var(--fill-edge) 0 0);
+}
+.surface {
+  inset: var(--fill-edge) 8% auto;
+  height: 3%;
+  opacity: clamp(0, calc(min(var(--fill), 1 - var(--fill)) * 12), 0.48);
+  background: linear-gradient(
+    180deg,
+    var(--color-cream-white),
+    var(--color-success)
+  );
+  mix-blend-mode: screen;
+  border-radius: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+}
+.pour {
+  width: max(2px, 4%);
+  height: calc(43% + var(--fill-edge));
+  transform-origin: bottom;
+  position: absolute;
+  top: -43%;
+  left: 48%;
+  transform: rotate(-8deg);
+}
+.stream {
+  opacity: clamp(0, calc(min(var(--fill), 1 - var(--fill)) * 8), 0.44);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-cream-white),
+    var(--water-highlight),
+    transparent
+  );
+  border-radius: var(--radius-full);
+  position: absolute;
+  inset: 0;
+}
+.drop {
+  --drop-progress: clamp(
+    0,
+    calc((var(--side-progress) - var(--drop-start)) * 3.8),
+    1
+  );
+  top: calc(93% * var(--drop-progress));
+  width: max(3px, 160%);
+  height: 10%;
+  opacity: clamp(
+    0,
+    calc(min(var(--drop-progress), 1 - var(--drop-progress)) * 8),
+    0.95
+  );
+  background: linear-gradient(
+    90deg,
+    var(--water-highlight),
+    var(--color-cream-white)
+  );
+  border-radius: 75% 75% 95% 95%;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+}
+.drop:first-of-type {
+  --drop-start: 0.03;
+}
+.drop:nth-of-type(2) {
+  --drop-start: 0.23;
+}
+.drop:nth-of-type(3) {
+  --drop-start: 0.43;
+}
+.drop:nth-of-type(4) {
+  --drop-start: 0.63;
+}
+.pouch {
+  --packed: clamp(0, calc((var(--side-progress) - 0.86) * 7.15), 1);
+  aspect-ratio: 585/720;
+  width: 26%;
+  height: auto;
+  left: 1%;
+  transform: translateY(-35%) rotate(-10deg);
+}
+.defs {
+  position: absolute;
+}
+.pouchOpening {
+  clip-path: url(#fries-opening);
+}
+.fry {
+  --fall: clamp(0, calc((var(--side-progress) - var(--start)) * 5), 1);
+  transform-origin: 50% 82%;
+  width: auto;
+  max-width: none;
+  transform: translate(-50%, calc(-185% * (1 - var(--fall))))
+    rotate(calc(var(--tilt) * var(--fall))) scaleX(1.13);
+  opacity: min(clamp(0, calc(var(--fall) * 5), 1), 1 - var(--packed));
+  filter: drop-shadow(1px 2px 2px var(--color-overlay));
+  position: absolute;
+}
+.packedFries {
+  opacity: var(--packed);
+}
+@media (prefers-reduced-motion: reduce) {
+  .glass,
+  .pouch {
+    --side-progress: 1;
+  }
+}
