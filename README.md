@@ -8,7 +8,7 @@
 
 A vegetarian cloud-kitchen storefront. Build a burger with a scroll, find your next bite, and try the menu-to-cart experience.
 
-[![Checks](https://github.com/JayDev-27/Soul-Bites/actions/workflows/ci.yml/badge.svg)](https://github.com/JayDev-27/Soul-Bites/actions/workflows/ci.yml)
+[![Checks](https://github.com/Arxana04/soul-bites/actions/workflows/ci.yml/badge.svg)](https://github.com/Arxana04/soul-bites/actions/workflows/ci.yml)
 ![React 18](https://img.shields.io/badge/React-18-262626?logo=react&logoColor=F5B700)
 ![TypeScript](https://img.shields.io/badge/TypeScript-262626?logo=typescript&logoColor=F5B700)
 ![Vite](https://img.shields.io/badge/Vite-262626?logo=vite&logoColor=F5B700)
@@ -65,7 +65,7 @@ Watch the burger assemble while fries fill the pouch and the mojito fills from a
 Use Node.js **22.12 or newer**. CI runs on Node.js 24.
 
 ```sh
-git clone https://github.com/JayDev-27/Soul-Bites.git
+git clone https://github.com/Arxana04/soul-bites.git
 cd Soul-Bites
 npm ci
 npm run dev

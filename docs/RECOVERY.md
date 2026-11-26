@@ -23,3 +23,7 @@ Run the two Supabase migrations and configure the environment using .env.example
 The recovered Vercel storefront was accessible during recovery, but its commerce endpoint returned FUNCTION_INVOCATION_FAILED. This recovery does not establish access to that Vercel account. Connect the new repository through the hosting dashboard to deploy the recovered code.
 
 Production checkout blocks order submission until ordering configuration is complete. Local Vite sessions can save browser-only sample orders.
+
+## Upstream restoration
+
+The original repository later became accessible at Arxana04/soul-bites. Its main history was merged into the recovered project while retaining the recovered application tree. JayDev-27/soul-bites is a GitHub fork of that upstream repository.
